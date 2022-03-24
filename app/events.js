@@ -1,6 +1,6 @@
 const gameUi = require('./ui.js')
 const gameApi = require('./api.js')
-const getFormFields = require('../../lib/get-form-fields.js')
+const getFormFields = require('../lib/get-form-fields.js')
 
 const onSignIn = function (event) {
   event.preventDefault()
