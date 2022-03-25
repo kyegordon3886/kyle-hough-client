@@ -1,7 +1,6 @@
 const store = require('./store.js')
 const config = require('./config.js')
 
-
 const signIn = function (data) {
   return $.ajax({
     method: 'POST',
@@ -44,6 +43,5 @@ module.exports = {
   signUp,
   changePassword,
   signIn,
-  signOut,
-  config
+  signOut
 }
