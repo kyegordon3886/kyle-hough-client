@@ -22,27 +22,32 @@
       <form id="sign-in-form">
         <input name="credentials[email]" type="email" require placeholder="Email">
         <input name="credentials[password]" type="password" placeholder="Password">
+        <button type="submit" class="button">Sign In</button>
       </form>
-      <button type="submit" class="button">Sign In</button>
+      
 
       <h3>Change Password</h3>
       <form id="change-password-form">
         <input name="passwords[old]" type="password" require placeholder="Enter Old Password">
         <input name="passwords[new]" type="password" placeholder="Enter New Password">
+        <button type="submit" class="button">Change Password</button>
       </form>
-      <button type="submit" class="button">Change Password</button>
+      
 
       <h3>Sign Up</h3>
       <form id="sign-up-form">
         <input name="credentials[email]" type="email" require placeholder="Email">
         <input name="credentials[password]" type="password" require placeholder="Password">
         <input name="credentials[password_confirmation]" type="password" require placeholder="Confirm Password">
+        <button type="submit" class="button">Sign Up</button>
       </form>
-      <button type="submit" class="button">Sign Up</button>
+      
 
       <section id="game-display"></section>
 
       <h3>A Game Of Tic Tac Toe</h3>
+
+      <button type="click" class="button" id="start-game">Start A Game</button>
 
       <!-- Below is bootstrap for game board  -->
 
@@ -61,8 +66,7 @@
         </div>
     </div>
 
-    <section></section>
-    <button type="click" class="button" id="restart">Restart Game</button>
+    <button type="click" class="button" id="restart">Reset Game Board</button>
     
 
     </body>
