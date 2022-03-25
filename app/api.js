@@ -13,7 +13,7 @@ const signIn = function (data) {
 const changePassword = function (data) {
   return $.ajax({
     method: 'PATCH',
-    url: 'https://tic-tac-toe-api-development.herokuapp.com/change-password',
+    url: config.apiUrl + '/change-password',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
@@ -24,7 +24,7 @@ const changePassword = function (data) {
 const signUp = function (data) {
   return $.ajax({
     method: 'POST',
-    url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-up',
+    url: config.apiUrl + '/sign-up',
     data
   })
 }
@@ -32,7 +32,7 @@ const signUp = function (data) {
 const signOut = function () {
   return $.ajax({
     method: 'DELETE',
-    url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-out',
+    url: config.apiUrl + '/sign-out',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }
@@ -42,7 +42,7 @@ const signOut = function () {
 const createGame = function () {
   return $.ajax({
     method: 'POST',
-    url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
+    url: config.apiUrl + '/games',
     // where to we get our url for this, use development url in project api
     headers: {
       Authorization: 'Bearer ' + store.user.token
@@ -54,7 +54,7 @@ const createGame = function () {
 const gameStatus = function (data) {
   return $.ajax({
     method: 'GET',
-    url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
+    url: config.apiUrl + '/games',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }
@@ -64,7 +64,7 @@ const gameStatus = function (data) {
 const playerMove = function (data) {
   return $.ajax({
     method: 'PATCH',
-    url: 'https://tic-tac-toe-api-development.herokuapp.com/games/id',
+    url: config.apiUrl + '/games/id',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }

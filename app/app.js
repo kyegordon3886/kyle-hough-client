@@ -14,5 +14,5 @@ $(() => {
   // $('#start-game').on('click', gameEvents.onCreateGame)
   $('.box').on('click', gameEvents.onBoxClick)
   $('#restart').on('click', gameEvents.restart)
-  // $('#game-board').hide()
+  // $('#game-board').hide([,completely])
 })
