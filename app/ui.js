@@ -14,7 +14,6 @@ const onSignUpFailure = function () {
 
 const onSignInSuccess = function (response) {
   $('#game-display').html('<p>You are signed in!</p>')
-
   $('form').trigger('reset')
   store.user = response.user
 }
@@ -34,10 +33,16 @@ const onChangePasswordFailure = function () {
 }
 const onSignOutSuccess = function () {
   $('#game-display').html('<p>Signed out!</p>')
+  $('#game-board').hide()
 }
 
 const onSignOutFailure = function () {
   $('#game-display').html('<p>Sign out failed...</p>')
+}
+
+const startNewGameSuccess = function () {
+  $('#game-board').show('fade-in')
+  console.log('New game start works')
 }
 
 module.exports = {
@@ -48,5 +53,7 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  startNewGameSuccess
+
 }

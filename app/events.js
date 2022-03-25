@@ -15,8 +15,6 @@ const onSignIn = function (event) {
   gameApi
     .signIn(data)
     .then((response) => gameUi.onSignInSuccess(response))
-    .then(() => gameApi.createGame())
-    .then((response) => { store.games = response.game.cells })
     .catch(() => gameUi.onSignInFailure())
 }
 
@@ -56,21 +54,18 @@ const onSignOut = function () {
     .catch(() => gameUi.onSignOutFailure())
 }
 
-// const onCreateGame = function (event) {
-//   event.preventDefault()
-//   console.log('Start a game button works')
+const onStartNewGame = function (event) {
+  event.preventDefault()
+  console.log('Start a game button works')
 
-//   const form = event.target
-//   const data = getFormFields(form)
-//   console.log(data)
+  // const form = event.target
+  // const data = getFormFields(form)
+  // console.log(data)
 
-//   gameApi
-//     .createGame(data)
-//     .then((response) => gameUi.onSignInSuccess())
-//     .then(() => gameUi.createGame())
-//     .then((response)) => console.log(response.game.cells)
-//     .catch(() => gameUi.onSignInFailure())
-// }
+  gameApi
+    .startNewGame()
+    .then((response) => gameUi.startNewGameSuccess(response))
+}
 
 // add box attributes to id the boxes being clicked
 
@@ -110,12 +105,13 @@ module.exports = {
   onChangePassword,
   onSignUp,
   onSignOut,
+  onStartNewGame,
   onBoxClick,
   restart,
   action
 
 }
-
+// $('1').text() === 'X'
 // if(box.1.text === 'X' && box.2.text === 'X' & box.3.text === 'X') {
 // print ('Player 1 Wins!')
 // } else if(box.4.text === 'X' && box.5.text === 'X' & box.6.text === 'X')
@@ -149,6 +145,9 @@ module.exports = {
 // print ('Player 2 Wins!')
 // } else if(box.3.text === 'O' && box.5.text === 'O' & box.7.text === 'O')
 // print ('Player 2 Wins!')
+
+
+// if all boxes clicked
 // } else {
 //   print ('The game is a draw.')
 // }

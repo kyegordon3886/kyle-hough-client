@@ -39,7 +39,7 @@ const signOut = function () {
   })
 }
 
-const createGame = function () {
+const startNewGame = function () {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/games',
@@ -75,7 +75,7 @@ module.exports = {
   changePassword,
   signIn,
   signOut,
-  createGame,
+  startNewGame,
   gameStatus,
   playerMove
 }
