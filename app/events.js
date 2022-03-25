@@ -52,9 +52,32 @@ const onSignOut = function () {
     .catch(() => gameUi.onSignOutFailure())
 }
 
+let clicked = false
+const onBoxClick = function () {
+  if (!clicked) {
+    $(this).text('X').off()
+    clicked = true
+  } else {
+    $(this).text('O').off()
+    clicked = false
+  }
+  console.log('Box click works!')
+  $(this).css('background', 'red')
+}
+
+console.log('Box click works!')
+$(this).css('background', 'red')
+
+const restart = function (event) {
+  $('.box').text('')
+  $('.box').bind('click', onBoxClick)
+}
+
 module.exports = {
   onSignIn,
   onChangePassword,
   onSignUp,
-  onSignOut
+  onSignOut,
+  onBoxClick,
+  restart
 }

@@ -1,1 +1,52 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inspiration&display=swap');
+
+// variable declarations
+
+$font-family: 'Playfair Display', serif;
+$font-family2: 'Inspiration', cursive;
+$body-bg-color: indigo;
+$box-bg-color: lightgrey;
+$box-border-color: indigo;
+$h-text-colors: forestgreen;
+
+// css 
+
+body {
+  background-color: $body-bg-color;
+}
+
+.box {
+  align-items: center;
+  background-color: $box-bg-color;
+  border: 1px solid $box-border-color;
+  border-color: $box-border-color;
+  color: forestgreen;
+  display: flex;
+  font-family: $font-family;
+  font-size: xx-large;
+  height: 190px;
+  justify-content: center;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  font-family: $font-family;
+  color: $h-text-colors;
+
+}
+.button {
+    position: center;
+}
+
+.new-color {
+background-color: goldenrod;
+}
+
+#so-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+}

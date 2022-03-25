@@ -12,35 +12,58 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <div id="so-button">
+        <button id="sign-out-button" class="button" type="submit">Log Out</button>
+      </div>
+      
       <h1>Tic Tac Toe</h1>
 
       <h3>Sign In</h3>
       <form id="sign-in-form">
         <input name="credentials[email]" type="email" require placeholder="Email">
         <input name="credentials[password]" type="password" placeholder="Password">
-        <button type="submit">Sign In</button>
       </form>
+      <button type="submit" class="button">Sign In</button>
 
       <h3>Change Password</h3>
       <form id="change-password-form">
         <input name="passwords[old]" type="password" require placeholder="Enter Old Password">
         <input name="passwords[new]" type="password" placeholder="Enter New Password">
-        <button type="submit">Change Password</button>
       </form>
+      <button type="submit" class="button">Change Password</button>
 
       <h3>Sign Up</h3>
       <form id="sign-up-form">
         <input name="credentials[email]" type="email" require placeholder="Email">
         <input name="credentials[password]" type="password" require placeholder="Password">
         <input name="credentials[password_confirmation]" type="password" require placeholder="Confirm Password">
-        <button type="submit">Sign Up</button>
       </form>
-
-      <h3>Sign Out</h3>
-      <button id="sign-out-button" type="submit">Sign Out</button>
-
-
+      <button type="submit" class="button">Sign Up</button>
 
       <section id="game-display"></section>
+
+      <h3>A Game Of Tic Tac Toe</h3>
+
+      <!-- Below is bootstrap for game board  -->
+
+    <div id="game-board"></div>
+      <div class="container">
+        <div class="row">
+          <button type="button" class="btn-primary col-4 box" id="1">$</button>
+          <button type="button" class="btn-primary col-4 box" id="2">$</button>
+          <button type="button" class="btn-primary col-4 box" id="3">$</button>
+          <button type="button" class="btn-primary col-4 box" id="4">$</button>
+          <button type="button" class="btn-primary col-4 box" id="5">$</button>
+          <button type="button" class="btn-primary col-4 box" id="6">$</button>
+          <button type="button" class="btn-primary col-4 box" id="7">$</button>
+          <button type="button" class="btn-primary col-4 box" id="8">$</button>
+          <button type="button" class="btn-primary col-4 box" id="9">$</button>
+        </div>
+    </div>
+
+    <section></section>
+    <button type="click" class="button" id="restart">Restart Game</button>
+    
+
     </body>
 </html>
