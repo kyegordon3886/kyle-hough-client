@@ -1,5 +1,7 @@
+
 const gameUi = require('./ui.js')
 const gameApi = require('./api.js')
+const store = require('./store.js')
 const getFormFields = require('../lib/get-form-fields.js')
 
 const onSignIn = function (event) {
@@ -13,6 +15,8 @@ const onSignIn = function (event) {
   gameApi
     .signIn(data)
     .then((response) => gameUi.onSignInSuccess(response))
+    .then(() => gameApi.createGame())
+    .then((response) => { store.games = response.game.cells })
     .catch(() => gameUi.onSignInFailure())
 }
 
@@ -52,25 +56,53 @@ const onSignOut = function () {
     .catch(() => gameUi.onSignOutFailure())
 }
 
+// const onCreateGame = function (event) {
+//   event.preventDefault()
+//   console.log('Start a game button works')
+
+//   const form = event.target
+//   const data = getFormFields(form)
+//   console.log(data)
+
+//   gameApi
+//     .createGame(data)
+//     .then((response) => gameUi.onSignInSuccess())
+//     .then(() => gameUi.createGame())
+//     .then((response)) => console.log(response.game.cells)
+//     .catch(() => gameUi.onSignInFailure())
+// }
+
+// add box attributes to id the boxes being clicked
+
 let clicked = false
 const onBoxClick = function () {
   if (!clicked) {
     $(this).text('X').off()
     clicked = true
+    store.game[0] = 'X'
   } else {
     $(this).text('O').off()
     clicked = false
   }
   console.log('Box click works!')
-  $(this).css('background', 'red')
+  // $(this).css('background', 'red')
+  // $(this).getAttribute
 }
-
-console.log('Box click works!')
-$(this).css('background', 'red')
 
 const restart = function (event) {
   $('.box').text('')
   $('.box').bind('click', onBoxClick)
+}
+
+// add box attributes to id the boxes being clicked
+let hidden = false
+function action () {
+  hidden = !hidden
+  if (hidden) {
+    document.getElementById('start-game').style.visibility = 'hidden'
+  } else {
+    document.getElementById('start-game').style.visibility = 'visible'
+  }
 }
 
 module.exports = {
@@ -79,5 +111,44 @@ module.exports = {
   onSignUp,
   onSignOut,
   onBoxClick,
-  restart
+  restart,
+  action
+
 }
+
+// if(box.1.text === 'X' && box.2.text === 'X' & box.3.text === 'X') {
+// print ('Player 1 Wins!')
+// } else if(box.4.text === 'X' && box.5.text === 'X' & box.6.text === 'X')
+// print ('Player 1 Wins!')
+// } else if(box.7.text === 'X' && box.8.text === 'X' & box.9.text === 'X')
+// print ('Player 1 Wins!')
+// } else if(box.1.text === 'X' && box.4.text === 'X' & box.7.text === 'X')
+// print ('Player 1 Wins!')
+// } else if(box.2.text === 'X' && box.5.text === 'X' & box.8.text === 'X')
+// print ('Player 1 Wins!')
+// } else if(box.3.text === 'X' && box.6.text === 'X' & box.9.text === 'X')
+// print ('Player 1 Wins!')
+// } else if(box.1.text === 'X' && box.5.text === 'X' & box.9.text === 'X')
+// print ('Player 1 Wins!')
+// } else if(box.3.text === 'X' && box.5.text === 'X' & box.7.text === 'X')
+// print ('Player 1 Wins!')
+
+// if(box.1.text === 'O' && box.2.text === 'O' & box.3.text === 'O') {
+// print ('Player 2 Wins!')
+// } else if(box.4.text === 'O' && box.5.text === 'O' & box.6.text === 'O')
+// print ('Player 2 Wins!')
+// } else if(box.7.text === 'O' && box.8.text === 'O' & box.9.text === 'O')
+// print ('Player 2 Wins!')
+// } else if(box.1.text === 'O' && box.4.text === 'O' & box.7.text === 'O')
+// print ('Player 2 Wins!')
+// } else if(box.2.text === 'O' && box.5.text === 'O' & box.8.text === 'O')
+// print ('Player 2 Wins!')
+// } else if(box.3.text === 'O' && box.6.text === 'O' & box.9.text === 'O')
+// print ('Player 2 Wins!')
+// } else if(box.1.text === 'O' && box.5.text === 'O' & box.9.text === 'O')
+// print ('Player 2 Wins!')
+// } else if(box.3.text === 'O' && box.5.text === 'O' & box.7.text === 'O')
+// print ('Player 2 Wins!')
+// } else {
+//   print ('The game is a draw.')
+// }
