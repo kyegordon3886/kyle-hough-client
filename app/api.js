@@ -1,9 +1,11 @@
 const store = require('./store.js')
+const config = require('./config.js')
+
 
 const signIn = function (data) {
   return $.ajax({
     method: 'POST',
-    url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-in',
+    url: config.apiUrl + '/sign-in',
     // where to we get our url for this, use development url in project api
     data
   })
@@ -42,5 +44,6 @@ module.exports = {
   signUp,
   changePassword,
   signIn,
-  signOut
+  signOut,
+  config
 }
