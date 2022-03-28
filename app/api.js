@@ -51,13 +51,22 @@ const startNewGame = function () {
   })
 }
 
-const updateGame = function () {
+const updateGame = function (index, value, over) {
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/games/id',
+    url: config.apiUrl + '/games/' + store.game._id,
     // where to we get our url for this, use development url in project api
     headers: {
       Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      game: {
+        cell: {
+          index,
+          value
+        },
+        over
+      }
     }
   })
 }

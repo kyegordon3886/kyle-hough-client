@@ -57,7 +57,12 @@ const startNewGameSuccess = function (response) {
   $('#game-board').show('fade-in')
   console.log('New game start works')
   store.game = response.game
+  console.log(store.game)
   $('.box').empty()
+}
+
+const updateGameSuccess = function (response) {
+  store.game = response.game
 }
 
 module.exports = {
@@ -70,5 +75,6 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   startNewGameSuccess,
+  updateGameSuccess,
   gameIndex
 }
