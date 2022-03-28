@@ -40,8 +40,9 @@ h1, h2, h3 {
 section {
    color: forestgreen;
 }
-.button {
-    position: center;
+
+#sign-in-form, #sign-up-form {
+    align-items: center;
 }
 
 .new-color {

@@ -50,55 +50,59 @@ const onSignOut = function () {
   gameApi
     .signOut()
     .then(() => gameUi.onSignOutSuccess())
-  // is all of the above a function within a function?
     .catch(() => gameUi.onSignOutFailure())
 }
+
+let board = ['', '', '', '', '', '', '', '', '']
 
 const onStartNewGame = function (event) {
   event.preventDefault()
   console.log('Start a game button works')
-
-  // const form = event.target
-  // const data = getFormFields(form)
-  // console.log(data)
+  board = ['', '', '', '', '', '', '', '', '']
+  store.currentPlayer = store.playerOne
 
   gameApi
     .startNewGame()
     .then((response) => gameUi.startNewGameSuccess(response))
+    .then((response) => console.log(response))
 }
+
+const onBoxClick = function (event) {
+  const index = event.target.getAttribute('data-cell-index')
+
+  // this below conditional statement is saying: start the game board at playerOne, on click, if it is playerOne = true, make it playerTwo, if not, make it playerone
+  if (board[index] === '') {
+    board[index] = store.currentPlayer
+    $(this).text(store.currentPlayer)
+    store.currentPlayer = (store.currentPlayer === store.playerOne) ? store.playerTwo : store.playerOne
+  }
+  console.log(board)
+
+  // gameApi
+  //   .updateGame()
+  //   .then((response) => gameUi.updateGameSuccess(response))
+  // .then(() => store.game.data)
+  // ??? is this needed
+}
+
+// wrap in update function
+// const restart = function (event) {
+//   event.preventDefault()
+//   console.log('Reset game button works')
+
+// const form = event.target
+// const data = getFormFields(form)
+// console.log(data)
+
+// gameApi
+//   .startNewGame()
+//   .then((response) => gameUi.startNewGameSuccess(response))
+//   .then(() => store.game.data)
+// $('.box').text('')
+// $('.box').bind('click', onBoxClick)
+// }
 
 // add box attributes to id the boxes being clicked
-
-let clicked = false
-const onBoxClick = function () {
-  if (!clicked) {
-    $(this).text('X').off()
-    clicked = true
-    store.game[0] = 'X'
-  } else {
-    $(this).text('O').off()
-    clicked = false
-  }
-  console.log('Box click works!')
-  // $(this).css('background', 'red')
-  // $(this).getAttribute
-}
-
-const restart = function (event) {
-  $('.box').text('')
-  $('.box').bind('click', onBoxClick)
-}
-
-// add box attributes to id the boxes being clicked
-let hidden = false
-function action () {
-  hidden = !hidden
-  if (hidden) {
-    document.getElementById('start-game').style.visibility = 'hidden'
-  } else {
-    document.getElementById('start-game').style.visibility = 'visible'
-  }
-}
 
 module.exports = {
   onSignIn,
@@ -107,10 +111,12 @@ module.exports = {
   onSignOut,
   onStartNewGame,
   onBoxClick,
-  restart,
-  action
-
+  checkForWin
+  // restart
+  // checkForWin
 }
+
+const checkForWin = function () {
 // $('1').text() === 'X'
 // if(box.1.text === 'X' && box.2.text === 'X' & box.3.text === 'X') {
 // print ('Player 1 Wins!')
@@ -146,8 +152,8 @@ module.exports = {
 // } else if(box.3.text === 'O' && box.5.text === 'O' & box.7.text === 'O')
 // print ('Player 2 Wins!')
 
-
 // if all boxes clicked
 // } else {
 //   print ('The game is a draw.')
 // }
+}

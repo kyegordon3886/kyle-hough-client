@@ -18,7 +18,7 @@
       
       <h1>Tic Tac Toe</h1>
 
-      <h3>Sign In</h3>
+      <h3></h3>
       <form id="sign-in-form">
         <input name="credentials[email]" type="email" require placeholder="Email">
         <input name="credentials[password]" type="password" placeholder="Password">
@@ -26,7 +26,7 @@
       </form>
       
 
-      <h3>Change Password</h3>
+      <h3></h3>
       <form id="change-password-form">
         <input name="passwords[old]" type="password" require placeholder="Enter Old Password">
         <input name="passwords[new]" type="password" placeholder="Enter New Password">
@@ -34,7 +34,7 @@
       </form>
       
 
-      <h3>Sign Up</h3>
+      <h3></h3>
       <form id="sign-up-form">
         <input name="credentials[email]" type="email" require placeholder="Email">
         <input name="credentials[password]" type="password" require placeholder="Password">
@@ -45,9 +45,9 @@
 
       <section id="game-display"></section>
 
-      <h3>A Game Of Tic Tac Toe</h3>
+      <h3></h3>
       
-      <h3>Star New Game</h3>
+      <h3></h3>
       <div id="start-new-game">
         <button type="submit" class="button" id="start-game">Start A Game</button>
       </div>
@@ -58,20 +58,20 @@
     <div id="game-board">
       <div class="container">
         <div class="row">
-          <button type="button" class="btn-primary col-4 box" id="1">$</button>
-          <button type="button" class="btn-primary col-4 box" id="2">$</button>
-          <button type="button" class="btn-primary col-4 box" id="3">$</button>
-          <button type="button" class="btn-primary col-4 box" id="4">$</button>
-          <button type="button" class="btn-primary col-4 box" id="5">$</button>
-          <button type="button" class="btn-primary col-4 box" id="6">$</button>
-          <button type="button" class="btn-primary col-4 box" id="7">$</button>
-          <button type="button" class="btn-primary col-4 box" id="8">$</button>
-          <button type="button" class="btn-primary col-4 box" id="9">$</button>
+          <button type="button" class="btn-primary col-4 box" data-cell-index = 0 >$</button>
+          <button type="button" class="btn-primary col-4 box" data-cell-index = 1 >$</button>
+          <button type="button" class="btn-primary col-4 box" data-cell-index = 2 >$</button>
+          <button type="button" class="btn-primary col-4 box" data-cell-index = 3 >$</button>
+          <button type="button" class="btn-primary col-4 box" data-cell-index = 4 >$</button>
+          <button type="button" class="btn-primary col-4 box" data-cell-index = 5 >$</button>
+          <button type="button" class="btn-primary col-4 box" data-cell-index = 6 >$</button>
+          <button type="button" class="btn-primary col-4 box" data-cell-index = 7 >$</button>
+          <button type="button" class="btn-primary col-4 box" data-cell-index = 8 >$</button>
         </div>
       </div>
     </div>
 
-    <button type="click" class="button" id="restart">Reset Game Board</button>
+    <!-- <button type="click" class="button" id="restart">Reset Game Board</button> -->
     
 
     </body>

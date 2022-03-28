@@ -1,10 +1,10 @@
+const { gameIndex } = require('./api.js')
 const store = require('./store.js')
 
 const onSignUpSuccess = function () {
   $('#game-display').html(
     '<p>You signed up successfully! Go ahead and sign in to your account!</p>'
   )
-
   $('form').trigger('reset')
 }
 
@@ -15,6 +15,12 @@ const onSignUpFailure = function () {
 const onSignInSuccess = function (response) {
   $('#game-display').html('<p>You are signed in!</p>')
   $('form').trigger('reset')
+  $('#so-button').show('fade-in')
+  $('#start-new-game').show('2000')
+  $('#restart').show('2000')
+  $('#change-password-form').show('2000')
+  $('#sign-in-form').hide('fade-out')
+  $('#sign-up-form').hide('fade-out')
   store.user = response.user
 }
 
@@ -34,15 +40,24 @@ const onChangePasswordFailure = function () {
 const onSignOutSuccess = function () {
   $('#game-display').html('<p>Signed out!</p>')
   $('#game-board').hide()
+  $('#so-button').hide()
+  $('#start-new-game').hide()
+  $('#restart').hide()
+  $('#change-password-form').hide()
+  $('#sign-in-form').show()
+  $('#sign-up-form').show()
+  $('#so-button').hide()
 }
 
 const onSignOutFailure = function () {
   $('#game-display').html('<p>Sign out failed...</p>')
 }
 
-const startNewGameSuccess = function () {
+const startNewGameSuccess = function (response) {
   $('#game-board').show('fade-in')
   console.log('New game start works')
+  store.game = response.game
+  $('.box').empty()
 }
 
 module.exports = {
@@ -54,6 +69,6 @@ module.exports = {
   onChangePasswordFailure,
   onSignOutSuccess,
   onSignOutFailure,
-  startNewGameSuccess
-
+  startNewGameSuccess,
+  gameIndex
 }

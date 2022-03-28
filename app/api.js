@@ -51,31 +51,41 @@ const startNewGame = function () {
   })
 }
 
-const gameStatus = function (data) {
+const updateGame = function () {
   return $.ajax({
-    method: 'GET',
-    url: config.apiUrl + '/games',
+    method: 'PATCH',
+    url: config.apiUrl + '/games/id',
+    // where to we get our url for this, use development url in project api
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }
   })
 }
 
-const playerMove = function (data) {
-  return $.ajax({
-    method: 'PATCH',
-    url: config.apiUrl + '/games/id',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    }
-  })
-}
+// const gameIndex = function () {
+//   return $.ajax({
+//     method: 'GET',
+//     url: config.apiUrl + '/games',
+//     headers: {
+//       Authorization: 'Bearer ' + store.user.token
+//     }
+//   })
+// }
+
+// const playerMove = function (data) {
+//   return $.ajax({
+//     method: 'PATCH',
+//     url: config.apiUrl + '/games/id',
+//     headers: {
+//       Authorization: 'Bearer ' + store.user.token
+//     }
+//   })
+// }
 module.exports = {
   signUp,
   changePassword,
   signIn,
   signOut,
   startNewGame,
-  gameStatus,
-  playerMove
+  updateGame
 }
