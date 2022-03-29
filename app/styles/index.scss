@@ -7,7 +7,7 @@
 $font-family: 'Playfair Display', serif;
 $font-family2: 'Inspiration', cursive;
 $body-bg-color: indigo;
-$box-bg-color: lightgrey;
+$box-bg-color: forestgreen;
 $box-border-color: indigo;
 $h-text-colors: #EEBC1D;
 
@@ -22,23 +22,33 @@ body {
   background-color: $box-bg-color;
   border: 1px solid $box-border-color;
   border-color: $box-border-color;
-  color: forestgreen;
+  color: $h-text-colors;
   display: flex;
-  font-family: $font-family;
-  font-size: xx-large;
+  font-family: $font-family2;
+  font-size: 100px;
+  font-weight: bold;
   height: 190px;
   justify-content: center;
 }
 
-h1, h2, h3 {
+h1 {
   text-align: center;
-  font-family: $font-family;
+  font-size: 125px;
+  font-weight: bold;
+  font-family: $font-family2;
+  color: $h-text-colors;
+}
+
+h2, h3 {
+  text-align: center;
+  font-family: $font-family2;
   color: $h-text-colors;
 
 }
 
 section {
    color: forestgreen;
+   font-weight: bold;
 }
 
 #sign-in-form, #sign-up-form {
@@ -60,10 +70,14 @@ background-color: goldenrod;
     text-align: center;
     font-size: xx-large;
     color: $h-text-colors;
+    font-family: $font-family2;
+    font-weight: bold;
 }
 
 #game-over {
     text-align: center;
     font-size: xx-large;
     color: $h-text-colors;
+    font-family: $font-family2;
+    font-weight: bold;
 }
