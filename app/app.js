@@ -2,6 +2,7 @@
 // const example = require('./example')
 
 const gameEvents = require('./events.js')
+const gameUi = require('./ui.js')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
@@ -13,10 +14,6 @@ $(() => {
   $('#sign-out-button').on('click', gameEvents.onSignOut)
   $('#start-new-game').on('click', gameEvents.onStartNewGame)
   $('.box').on('click', gameEvents.onBoxClick)
-  // $('#restart').on('click', gameEvents.restart)
-  $('#game-board').hide()
-  $('#so-button').hide()
-  $('#start-new-game').hide()
-  $('#change-password-form').hide()
-  // $('#restart').hide()
+  $('#game-board, #so-button, #start-new-game, #change-password-form').hide()
+  // $('.box').on('click', gameUi.startNewGameSuccess)
 })

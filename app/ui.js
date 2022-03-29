@@ -1,4 +1,6 @@
 const { gameIndex } = require('./api.js')
+// const { checkForWin } = require('./events.js')
+// const events = require('./events.js')
 const store = require('./store.js')
 
 const onSignUpSuccess = function () {
@@ -13,14 +15,11 @@ const onSignUpFailure = function () {
 }
 
 const onSignInSuccess = function (response) {
-  $('#game-display').html('<p>You are signed in!</p>')
+  $('#game-display').html('<p>You are signed in!</p>').hide(7000)
   $('form').trigger('reset')
   $('#so-button').show('fade-in')
-  $('#start-new-game').show('2000')
-  $('#restart').show('2000')
-  $('#change-password-form').show('2000')
-  $('#sign-in-form').hide('fade-out')
-  $('#sign-up-form').hide('fade-out')
+  $('#start-new-game, #change-password-form').show('2000')
+  $('#sign-in-form, #sign-up-form').hide('fade-out')
   store.user = response.user
 }
 
@@ -39,14 +38,8 @@ const onChangePasswordFailure = function () {
 }
 const onSignOutSuccess = function () {
   $('#game-display').html('<p>Signed out!</p>')
-  $('#game-board').hide()
-  $('#so-button').hide()
-  $('#start-new-game').hide()
-  $('#restart').hide()
-  $('#change-password-form').hide()
-  $('#sign-in-form').show()
-  $('#sign-up-form').show()
-  $('#so-button').hide()
+  $('#game-board, #so-button, #start-new-game, #change-password-form').hide()
+  $('#sign-in-form, #sign-up-form').show()
 }
 
 const onSignOutFailure = function () {
@@ -59,10 +52,12 @@ const startNewGameSuccess = function (response) {
   store.game = response.game
   console.log(store.game)
   $('.box').empty()
+  $('.box').on('click')
 }
 
 const updateGameSuccess = function (response) {
   store.game = response.game
+  console.log(store.game)
 }
 
 module.exports = {
@@ -75,6 +70,5 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   startNewGameSuccess,
-  updateGameSuccess,
-  gameIndex
+  updateGameSuccess
 }
