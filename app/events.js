@@ -5,7 +5,6 @@ const store = require('./store.js')
 const getFormFields = require('../lib/get-form-fields.js')
 
 let board = ['', '', '', '', '', '', '', '', '']
-// let over = store.game.over
 const onSignIn = function (event) {
   event.preventDefault()
   console.log('Sign in button works')
@@ -31,7 +30,6 @@ const onChangePassword = function (event) {
   gameApi
     .changePassword(data)
     .then(() => gameUi.onChangePasswordSuccess())
-  // is all of the above a function within a function?
     .catch(() => gameUi.onChangePasswordFailure())
 }
 
@@ -57,7 +55,7 @@ const onSignOut = function () {
 
 const gameOver = function () {
   $('.box').off('click')
-  // store.game.over = 'true'
+  store.game.over = true
   document.getElementById('game-over').innerHTML = 'Game Over Amigos.'
 }
 
@@ -69,7 +67,6 @@ const onStartNewGame = function (event) {
   $('#winner, #game-over').show()
   board = ['', '', '', '', '', '', '', '', '']
   store.currentPlayer = store.playerOne
-  // store.game.over = 'false'
 
   gameApi
     .startNewGame()
@@ -88,7 +85,6 @@ const checkForWin = function (board) {
     board[0] === 'X' && (board[4] === 'X') && (board[8] === 'X')) || (
     board[2] === 'X' && (board[4] === 'X') && (board[6] === 'X'))
   ) {
-    // let (store.game.over = true)
     document.getElementById('winner').innerHTML = 'X wins!'
     gameOver()
   }
@@ -102,11 +98,9 @@ const checkForWin = function (board) {
     board[0] === 'O' && (board[4] === 'O') && (board[8] === 'O')) || (
     board[2] === 'O' && (board[4] === 'O') && (board[6] === 'O'))
   ) {
-    // let (store.game.over = true)
     document.getElementById('winner').innerHTML = 'O wins!'
     gameOver()
   } else if (board.every(value => value === 'X' || value === 'O')) {
-    // let (store.game.over = true)
     document.getElementById('winner').innerHTML = 'The game is a draw'
     gameOver()
   }
@@ -120,14 +114,13 @@ const onBoxClick = function (event) {
     $(this).text(store.currentPlayer)
     store.currentPlayer = (store.currentPlayer === store.playerOne) ? store.playerTwo : store.playerOne
   }
-  // if (board[index].forEach === ('X' || 'O')) {
-  //   console.log('game over')
-  // }
+
   console.log(board)
   console.log(store.game)
+  console.log(store.game.over)
 
   gameApi
-    .updateGame(index, board[index], false)
+    .updateGame(index, board[index], store.game.over)
     .then((response) => gameUi.updateGameSuccess(response))
   checkForWin(board)
 }
