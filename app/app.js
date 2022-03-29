@@ -2,7 +2,7 @@
 // const example = require('./example')
 
 const gameEvents = require('./events.js')
-const gameUi = require('./ui.js')
+// const gameUi = require('./ui.js')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')

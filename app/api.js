@@ -71,25 +71,6 @@ const updateGame = function (index, value, over) {
   })
 }
 
-// const gameIndex = function () {
-//   return $.ajax({
-//     method: 'GET',
-//     url: config.apiUrl + '/games',
-//     headers: {
-//       Authorization: 'Bearer ' + store.user.token
-//     }
-//   })
-// }
-
-// const playerMove = function (data) {
-//   return $.ajax({
-//     method: 'PATCH',
-//     url: config.apiUrl + '/games/id',
-//     headers: {
-//       Authorization: 'Bearer ' + store.user.token
-//     }
-//   })
-// }
 module.exports = {
   signUp,
   changePassword,

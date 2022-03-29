@@ -1,4 +1,4 @@
-const { gameIndex } = require('./api.js')
+// const { gameIndex } = require('./api.js')
 // const { checkForWin } = require('./events.js')
 // const events = require('./events.js')
 const store = require('./store.js')
@@ -15,7 +15,7 @@ const onSignUpFailure = function () {
 }
 
 const onSignInSuccess = function (response) {
-  $('#game-display').html('<p>You are signed in!</p>').hide(7000)
+  $('#game-display').html('<p>You are signed in!</p>').hide(3000)
   $('form').trigger('reset')
   $('#so-button').show('fade-in')
   $('#start-new-game, #change-password-form').show('2000')

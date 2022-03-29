@@ -5,7 +5,7 @@ const store = require('./store.js')
 const getFormFields = require('../lib/get-form-fields.js')
 
 let board = ['', '', '', '', '', '', '', '', '']
-
+// let over = store.game.over
 const onSignIn = function (event) {
   event.preventDefault()
   console.log('Sign in button works')
@@ -55,14 +55,20 @@ const onSignOut = function () {
     .catch(() => gameUi.onSignOutFailure())
 }
 
+const gameOver = function () {
+  $('.box').off('click')
+  // store.game.over = 'true'
+  document.getElementById('game-over').innerHTML = 'Game Over Amigos.'
+}
+
 const onStartNewGame = function (event) {
   event.preventDefault()
-  $('.box').on('click')
+  $('.box').on('click', onBoxClick)
   document.getElementById('winner').innerHTML = ' '
   document.getElementById('game-over').innerHTML = ' '
   board = ['', '', '', '', '', '', '', '', '']
   store.currentPlayer = store.playerOne
-  // store.game.over = false
+  // store.game.over = 'false'
 
   gameApi
     .startNewGame()
@@ -70,16 +76,16 @@ const onStartNewGame = function (event) {
     .then((response) => console.log(response))
 }
 
-const gameOver = function () {
-  $('.box').off('click')
-  store.game.over = true
-  document.getElementById('game-over').innerHTML = 'Game Over Amigos.'
-}
-
 const checkForWin = function (board) {
   if ((
     board[0] === 'X' && (board[1] === 'X') && (board[2] === 'X')) || (
-    board[3] === 'X' && (board[4] === 'X') && (board[5] === 'X')) || (board[6] === 'X' && (board[7] === 'X') && (board[8] === 'X')) || (board[0] === 'X' && (board[3] === 'X') && (board[6] === 'X')) || (board[1] === 'X' && (board[4] === 'X') && (board[7] === 'X')) || (board[2] === 'X' && (board[5] === 'X') && (board[8] === 'X')) || (board[0] === 'X' && (board[4] === 'X') && (board[8] === 'X')) || (board[2] === 'X' && (board[4] === 'X') && (board[6] === 'X'))
+    board[3] === 'X' && (board[4] === 'X') && (board[5] === 'X')) || (
+    board[6] === 'X' && (board[7] === 'X') && (board[8] === 'X')) || (
+    board[0] === 'X' && (board[3] === 'X') && (board[6] === 'X')) || (
+    board[1] === 'X' && (board[4] === 'X') && (board[7] === 'X')) || (
+    board[2] === 'X' && (board[5] === 'X') && (board[8] === 'X')) || (
+    board[0] === 'X' && (board[4] === 'X') && (board[8] === 'X')) || (
+    board[2] === 'X' && (board[4] === 'X') && (board[6] === 'X'))
   ) {
     // let (store.game.over = true)
     document.getElementById('winner').innerHTML = 'X wins!'
@@ -87,7 +93,13 @@ const checkForWin = function (board) {
   }
   if ((
     board[0] === 'O' && (board[1] === 'O') && (board[2] === 'O')) || (
-    board[3] === 'O' && (board[4] === 'O') && (board[5] === 'O')) || (board[6] === 'O' && (board[7] === 'O') && (board[8] === 'O')) || (board[0] === 'O' && (board[3] === 'O') && (board[6] === 'O')) || (board[1] === 'O' && (board[4] === 'O') && (board[7] === 'O')) || (board[2] === 'O' && (board[5] === 'O') && (board[8] === 'O')) || (board[0] === 'O' && (board[4] === 'O') && (board[8] === 'O')) || (board[2] === 'O' && (board[4] === 'O') && (board[6] === 'O'))
+    board[3] === 'O' && (board[4] === 'O') && (board[5] === 'O')) || (
+    board[6] === 'O' && (board[7] === 'O') && (board[8] === 'O')) || (
+    board[0] === 'O' && (board[3] === 'O') && (board[6] === 'O')) || (
+    board[1] === 'O' && (board[4] === 'O') && (board[7] === 'O')) || (
+    board[2] === 'O' && (board[5] === 'O') && (board[8] === 'O')) || (
+    board[0] === 'O' && (board[4] === 'O') && (board[8] === 'O')) || (
+    board[2] === 'O' && (board[4] === 'O') && (board[6] === 'O'))
   ) {
     // let (store.game.over = true)
     document.getElementById('winner').innerHTML = 'O wins!'
@@ -107,9 +119,9 @@ const onBoxClick = function (event) {
     $(this).text(store.currentPlayer)
     store.currentPlayer = (store.currentPlayer === store.playerOne) ? store.playerTwo : store.playerOne
   }
-  if (board[index].forEach === ('X' || 'O')) {
-    console.log('game over')
-  }
+  // if (board[index].forEach === ('X' || 'O')) {
+  //   console.log('game over')
+  // }
   console.log(board)
   console.log(store.game)
 
