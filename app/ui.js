@@ -1,6 +1,3 @@
-// const { gameIndex } = require('./api.js')
-// const { checkForWin } = require('./events.js')
-// const events = require('./events.js')
 const store = require('./store.js')
 
 const onSignUpSuccess = function () {
