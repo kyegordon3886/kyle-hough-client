@@ -38,7 +38,7 @@ const onChangePasswordFailure = function () {
 }
 const onSignOutSuccess = function () {
   $('#game-display').html('<p>Signed out!</p>')
-  $('#game-board, #so-button, #start-new-game, #change-password-form').hide()
+  $('#game-board, #so-button, #start-new-game, #change-password-form, #winner, #game-over').hide()
   $('#sign-in-form, #sign-up-form').show()
 }
 
@@ -48,6 +48,7 @@ const onSignOutFailure = function () {
 
 const startNewGameSuccess = function (response) {
   $('#game-board').show('fade-in')
+  
   console.log('New game start works')
   store.game = response.game
   console.log(store.game)

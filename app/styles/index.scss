@@ -9,7 +9,7 @@ $font-family2: 'Inspiration', cursive;
 $body-bg-color: indigo;
 $box-bg-color: lightgrey;
 $box-border-color: indigo;
-$h-text-colors: forestgreen;
+$h-text-colors: #EEBC1D;
 
 // css 
 
@@ -53,16 +53,17 @@ background-color: goldenrod;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-
 }
 
 
 #winner {
     text-align: center;
     font-size: xx-large;
+    color: $h-text-colors;
 }
 
 #game-over {
     text-align: center;
     font-size: xx-large;
+    color: $h-text-colors;
 }

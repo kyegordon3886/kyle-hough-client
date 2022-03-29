@@ -66,6 +66,7 @@ const onStartNewGame = function (event) {
   $('.box').on('click', onBoxClick)
   document.getElementById('winner').innerHTML = ' '
   document.getElementById('game-over').innerHTML = ' '
+  $('#winner, #game-over').show()
   board = ['', '', '', '', '', '', '', '', '']
   store.currentPlayer = store.playerOne
   // store.game.over = 'false'
