@@ -28,6 +28,6 @@ In beginning of this project, I started off with a very simple wireframe sketch 
 
 I appreciate you taking the time to check out my work! My name is Kyle, K.G. for short. I am junior software developer and a General Assembly software engineering fellow. 
 
-Check more of my developments [here](https://github.com/kyegordon3886/kyle-hough-client) on GitHub. If you are interested in reaching out to me, drop me a note via [email](mailto:k.gordon.hough000@gmail.com) @ k.gordon.hough000@gmail.com or find me on [LinkdIn](https://www.linkedin.com/in/kg-and-the-machine/). 
+Check more of my developments [here](https://github.com/kyegordon3886) on GitHub. If you are interested in reaching out to me, drop me a note via [email](mailto:k.gordon.hough000@gmail.com) @ k.gordon.hough000@gmail.com or find me on [LinkdIn](https://www.linkedin.com/in/kg-and-the-machine/). 
 
 *Godspeed and Grace!*
